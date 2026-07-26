@@ -58,8 +58,8 @@ pipeline {
             sh '''
                 echo "Checking GitHub token..."
 
-                echo "Token length: ${#GITHUB_TOKEN}"
-                echo "Token starts with: ${GITHUB_TOKEN:0:4}"
+                echo "Token length: $(echo -n $GITHUB_TOKEN | wc -c)"
+                echo "Token starts with: $(echo -n $GITHUB_TOKEN | cut -c1-4)"
 
                 git ls-remote https://sharmasudhir1234:${GITHUB_TOKEN}@github.com/sharmasudhir1234/Jenkins-Zero-To-Hero.git
             '''
