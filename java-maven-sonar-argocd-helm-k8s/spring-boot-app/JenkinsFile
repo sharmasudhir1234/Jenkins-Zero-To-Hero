@@ -52,20 +52,7 @@ pipeline {
         }
       }
     }
-    stage('Check Workspace') {
-    steps {
-        sh '''
-        echo "Current directory:"
-        pwd
 
-        echo "Files:"
-        ls -la
-
-        echo "Git status:"
-        git status
-        '''
-    }
-}
     stage('Update Deployment File') {
         environment {
             GIT_REPO_NAME = "Jenkins-Zero-To-Hero"
