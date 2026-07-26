@@ -1,10 +1,10 @@
 pipeline {
   agent {
-    docker {
-        image 'sudhirsharma/jenkins-agent:v1'
-        args '-v /var/run/docker.sock:/var/run/docker.sock'
+        docker {
+            image 'venkat1451/eclipse-venkat-docker-agent:v3'
+            args '--user root -v /var/run/docker.sock:/var/run/docker.sock'
+        }
     }
-}
   stages {
     stage('Checkout') {
       steps {
